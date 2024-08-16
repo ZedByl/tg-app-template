@@ -1,0 +1,19 @@
+.wallet {
+  padding: 12px;
+  border-radius: 10px;
+  background-color: var(--g-color-base-generic);
+
+  &__head {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  &__finance {
+    margin-top: 16px;
+
+    &__item {
+
+    }
+  }
+}

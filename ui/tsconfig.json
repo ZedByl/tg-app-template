@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "typeRoots": ["./node_modules/telegram-webapps"],
+    "sourceMap": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "useUnknownInCatchVariables": false,
+    "jsx": "react-jsx",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+    ],
+    "noEmit": true,
+    "incremental": true,
+    "module": "CommonJS",
+    "paths": {
+      "app/*": ["app/*"],
+      "entities/*": ["entities/*"],
+      "features/*": ["features/*"],
+      "pages/*": ["pages/*"],
+      "shared/*": ["shared/*"],
+      "shared/api/*": ["shared/api/*"],
+      "shared/config/*": ["shared/config/*"],
+      "shared/ui/*": ["shared/ui/*"],
+      "@widgets/*": ["widgets/*"]
+    }
+  },
+  "include": [
+    "src",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules/"
+  ],
+}

@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  # Bot API service
+  bot-api:
+    networks:
+      - web
+    environment:
+      TELEGRAM_BOT_TOKEN: 'token'
+    restart: on-failure
+    command: "uvicorn asgi:app --host 0.0.0.0 --port 8080 --workers 1 --log-level debug --reload"
+    build:
+      context: ./api
+      dockerfile: dev.Dockerfile
+
+  # Bot UI in development mode
+  bot-ui:
+    restart: on-failure
+    networks:
+      - web
+    volumes:
+      - ./ui/src:/app/src
+      - ./ui/public:/app/public
+      - ./ui/index.html:/app/index.html
+      - ./ui/vite.config.ts:/app/vite.config.ts
+    build:
+      context: ./ui
+      dockerfile: dev.Dockerfile
+
+  # Nginx proxy to forward request to UI and API
+  dev-proxy:
+    image: nginx:stable-alpine
+    networks:
+      - web
+    depends_on:
+      - bot-ui
+      - bot-api
+    restart: on-failure
+    environment:
+      PORT: 3000
+      API_URL: http://bot-api:8080
+      UI_URL: http://bot-ui:3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./proxy.template:/etc/nginx/templates/default.conf.template
+
+networks:
+  web:

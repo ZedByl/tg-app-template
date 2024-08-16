@@ -1,0 +1,67 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: var(--g-color-base-misc-light);
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  &.green {
+    background-color: var(--g-color-base-positive-light);
+
+    & .icon {
+      background-color: var(--g-color-base-positive-light-hover);
+    }
+  }
+
+  &.red {
+    background-color: var(--g-color-base-danger-light);
+
+    & .icon {
+      background-color: var(--g-color-base-danger-light-hover);
+    }
+  }
+
+  &.yellow {
+    background-color: var(--g-color-base-warning-light);
+
+    & .icon {
+      background-color: var(--g-color-base-warning-light-hover);
+    }
+  }
+
+  &.violet {
+    background-color: var(--g-color-base-utility-light);
+
+    & .icon {
+      background-color: var(--g-color-base-utility-light-hover);
+    }
+  }
+
+  &.blue {
+    background-color: var(--g-color-base-info-light);
+
+    & .icon {
+      background-color: var(--g-color-base-info-light-hover);
+    }
+  }
+
+  & .left,
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  & .icon {
+    width: max-content;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: var(--g-color-base-misc-light-hover);
+  }
+}
