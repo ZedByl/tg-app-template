@@ -9,6 +9,8 @@ services:
       TELEGRAM_BOT_TOKEN: 'token'
     restart: on-failure
     command: "uvicorn asgi:app --host 0.0.0.0 --port 8080 --workers 1 --log-level debug --reload"
+    volumes:
+      - ./api:/app
     build:
       context: ./api
       dockerfile: dev.Dockerfile

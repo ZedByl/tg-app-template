@@ -1,9 +1,8 @@
-import { Wallet } from '@widgets/Wallet'
 import { useEffect } from 'react'
+import { Spinner } from '@telegram-apps/telegram-ui';
 
 
 export const HomePage = () => {
-
   useEffect(() => {
     if (Telegram?.WebApp) {
       Telegram.WebApp.BackButton.hide()
@@ -12,7 +11,9 @@ export const HomePage = () => {
   }, [Telegram])
   return (
     <div>
-      <Wallet />
+      <Spinner
+        size='l'
+      />
     </div>
   )
 }

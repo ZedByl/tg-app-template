@@ -24,7 +24,7 @@ RUN apt-get update && \
 
 RUN pip install --upgrade pip
 
-RUN pip install fastapi uvicorn structlog
+RUN pip install fastapi uvicorn structlog python-telegram-bot python-multipart python-dotenv
 
 COPY . /app
 
